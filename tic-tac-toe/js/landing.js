@@ -4,8 +4,6 @@ const modal = document.getElementById('rule-modal');
 const closeBtn = document.getElementById('close-btn');
 const menuBtns = document.querySelectorAll('.menu > ul > li');
 
-const cols = document.querySelectorAll('.col');
-
 const startBtn = document.querySelector('#start');
 
 const difficultyModal = document.getElementById('difficulty-modal');
@@ -75,22 +73,11 @@ closeBtn.addEventListener('mouseleave', () => {
 
 window.addEventListener('load', () => {
     localStorage.removeItem('board');
-    cols.forEach((c) => {
-        c.style.opacity = 0;
-        c.style.transform = 'scale(0)';
-    });
-});
 
-window.addEventListener('pageshow', (event) => {
-    // event.persisted가 true면 캐시된 페이지를 불러온 상태입니다.
-    if (event.persisted) {
-        // 여기서 아까 작성하신 초기화 코드를 다시 실행합니다.
-        const cols = document.querySelectorAll('.col');
-        cols.forEach((c) => {
-            c.style.opacity = 0;
-            c.style.transform = 'scale(0)';
-        });
-    }
+    gsap.to('.col', {
+        opacity: 0,
+        scale: 0,
+    });
 });
 
 startBtn.addEventListener('click', (e) => {
