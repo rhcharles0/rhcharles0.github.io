@@ -80,6 +80,14 @@ window.addEventListener('load', () => {
         c.style.transform = 'scale(0)';
     });
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    cols.forEach((c) => {
+        c.style.opacity = 0;
+        c.style.transform = 'scale(0)';
+    });
+});
+
 startBtn.addEventListener('click', (e) => {
     e.preventDefault();
     difficultyModal.style.display = 'flex';
