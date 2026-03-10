@@ -81,11 +81,16 @@ window.addEventListener('load', () => {
     });
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-    cols.forEach((c) => {
-        c.style.opacity = 0;
-        c.style.transform = 'scale(0)';
-    });
+window.addEventListener('pageshow', (event) => {
+    // event.persisted가 true면 캐시된 페이지를 불러온 상태입니다.
+    if (event.persisted) {
+        // 여기서 아까 작성하신 초기화 코드를 다시 실행합니다.
+        const cols = document.querySelectorAll('.col');
+        cols.forEach((c) => {
+            c.style.opacity = 0;
+            c.style.transform = 'scale(0)';
+        });
+    }
 });
 
 startBtn.addEventListener('click', (e) => {
