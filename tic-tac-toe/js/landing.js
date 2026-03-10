@@ -74,11 +74,13 @@ closeBtn.addEventListener('mouseleave', () => {
 window.addEventListener('load', () => {
     localStorage.removeItem('board');
 
-    gsap.to('.col', {
+    gsap.set('.col', {
         opacity: 0,
         scale: 0,
     });
-    gsap.to('#difficulty-modal', {
+
+    // 2. 모달은 즉시 제거
+    gsap.set('#difficulty-modal', {
         display: 'none',
     });
 });
