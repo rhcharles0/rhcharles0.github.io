@@ -78,6 +78,9 @@ window.addEventListener('load', () => {
         opacity: 0,
         scale: 0,
     });
+    gsap.to('difficulty-modal', {
+        display: 'none',
+    });
 });
 
 startBtn.addEventListener('click', (e) => {
